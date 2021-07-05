@@ -35,7 +35,12 @@ export class AddPostComponent implements OnInit {
       categoryId: this.postForm.value.categoryId,
     };
     this.postService.addPost(post).subscribe((data) => {
-      console.log(data);
+      let postData = {
+        ...post,
+        id: data.name,
+      };
+      this.postService.addPostSubject(postData);
+      this.router.navigateByUrl('/posts');
     });
   }
 }

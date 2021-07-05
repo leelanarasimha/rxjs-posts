@@ -1,5 +1,3 @@
-import { PostService } from './post.service';
-import { Category } from './../models/Category.model';
 import { CategoryService } from './category.service';
 import { Post } from './../models/Post.model';
 import { HttpClient } from '@angular/common/http';
@@ -55,9 +53,12 @@ export class PostService {
   ) {}
 
   addPost(post: Post) {
-    return this.http.post(
+    return this.http.post<{ name: string }>(
       `https://rxjs-posts-default-rtdb.firebaseio.com/posts.json`,
       post
     );
+  }
+  addPostSubject(post: Post) {
+    this.addPostSubject$.next(post);
   }
 }

@@ -8,7 +8,7 @@ import { combineLatest } from 'rxjs';
   styleUrls: ['./posts-list.component.css'],
 })
 export class PostsListComponent implements OnInit {
-  posts$ = this.postService.PostsWithAdd$;
+  posts$ = this.postService.postsWithCategory$;
 
   constructor(private postService: PostService) {}
 
