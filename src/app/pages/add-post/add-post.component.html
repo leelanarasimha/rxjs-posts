@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Create Post</h2>
+    <form [formGroup]="postForm" (submit)="onCreatePost($event)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Select Category</label>
+        <select class="form-control" formControlName="categoryId">
+          <option value="">Select Category</option>
+          <option
+            [value]="category.id"
+            *ngFor="let category of categories$ | async"
+          >
+            {{ category.title }}
+          </option>
+        </select>
+      </div>
+
+      <div class="my-4">
+        <button type="submit" class="btn btn-primary">Save Post</button>
+      </div>
+    </form>
+  </div>
+</div>

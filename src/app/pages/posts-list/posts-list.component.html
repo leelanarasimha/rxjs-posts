@@ -1,0 +1,26 @@
+<div class="row my-4">
+  <div class="col-md-12">
+    <h2>Posts Data</h2>
+    <div>
+      <a [routerLink]="['/posts/add']" class="btn btn-primary">Add Post</a>
+    </div>
+    <table class="table" *ngIf="posts$ | async as posts">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td>{{ post.title }}</td>
+          <td>{{ post.category }}</td>
+          <td>
+            <a [routerLink]="['/products/edit/', post.id]">Edit Product</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

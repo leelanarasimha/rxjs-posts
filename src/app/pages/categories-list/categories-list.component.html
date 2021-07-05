@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="my-4">
+      <h2>Categories List</h2>
+    </div>
+    <div class="my-4">
+      <a [routerLink]="['/categories/add']" class="btn btn-primary"
+        >Add Category</a
+      >
+    </div>
+
+    <table *ngIf="categories$ | async as categories" class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.title }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
